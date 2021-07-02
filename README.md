@@ -68,6 +68,7 @@
 
 ### Association
 
+- belongs_to :user
 - belongs_to :post
 - validates :image, presence: true
 
