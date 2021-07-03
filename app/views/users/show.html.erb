@@ -1,0 +1,8 @@
+<h3><%= @user.nickname %></h3>
+
+<% @user.photos.each do |photo| %>
+  <div>
+    <p><%= photo.title %></p>
+    <%= image_tag photo.image %>
+  </div>
+<% end %>
