@@ -15,6 +15,8 @@ def create
   end
 end
 
+
+
 private_methods
 
 def photo_params
