@@ -15,6 +15,25 @@ def create
   end
 end
 
+def edit
+  @photo = Photo.find_by(id: params[:id])
+end
+
+def update
+  @photo = Photo.find_by(id: params[:id])
+  if @photo.update_attributes(photo_params)
+    redirect_to "/"
+  else
+    render action: :edit
+  end
+end
+
+ def destroy
+   @photo = Photo.find(params[:id])
+   @photo.destroy
+   redirect_to root_path
+ end
+
 
 
 private_methods
