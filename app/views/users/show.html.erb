@@ -20,5 +20,7 @@
     <p><%= photo.title %></p>
     <%= image_tag photo.image %>
   </div>
+  <%= link_to "編集", edit_photo_path(photo) %>
+   <%= link_to "削除", photo, method: :delete, data: { confirm: "#{photo.title}を削除して大丈夫ですか？" } %>
 <% end %>
 
