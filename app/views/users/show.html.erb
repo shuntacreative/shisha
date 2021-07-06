@@ -20,7 +20,26 @@
     <p><%= photo.title %></p>
     <%= image_tag photo.image %>
   </div>
+
   <%= link_to "編集", edit_photo_path(photo) %>
    <%= link_to "削除", photo, method: :delete, data: { confirm: "#{photo.title}を削除して大丈夫ですか？" } %>
+
+ <% if user_signed_in? %>
+  <div class="like">
+    <h3>like件数: <%= photo.likes.count %></h3>
+    <div class='like-button'>
+      <% if current_user.liked_by?(photo.id) %>
+       <td><%= link_to 'UNLIKE', photo_like_path(photo), class: "like-link", method: :DELETE %></td>
+         <i class="fa fa-heart unlike-btn"></i>
+      <% else %>
+         <td><%= link_to 'LIKE', photo_likes_path(photo), class: "like-link", method: :create %></td>
+         <i class="fa fa-heart like-btn"></i>
+      <% end %>
+<%# @user.liked_photos.each do |photo| %>
+  <%#= photo.user.nickname %>
+<%# end %>
+
+
+<% end %>
 <% end %>
 
