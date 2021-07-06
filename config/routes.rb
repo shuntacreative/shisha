@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
 
-  resources :photos, only: [:create, :new, :edit, :update, :destroy]
+  resources :photos, only: [:create, :new, :edit, :update, :destroy] do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :users do
    resource :follow
    resources :followings 

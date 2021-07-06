@@ -1,6 +1,16 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @photos = Photo.all
+    @photos = Photo.new
+  end
+
+  def show
+    @photo = Photo.find(params[:id])
+    @like = Like.new
+  end
+
 def new
   @photo = current_user.photos.new
 end
