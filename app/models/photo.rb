@@ -10,5 +10,7 @@ class Photo < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :title
+    validates :place
+    validates :description
   end
 end
