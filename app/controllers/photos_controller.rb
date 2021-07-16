@@ -4,11 +4,14 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.all
     @photos = Photo.new
+    
+
   end
 
   def show
     @photo = Photo.find(params[:id])
     @like = Like.new
+    @user = User.find(params[:id])
   end
 
 def new
@@ -49,7 +52,7 @@ end
 private_methods
 
 def photo_params
-  params.require(:photo).permit(:title, :image, :description, :place)
+  params.require(:photo, :user).permit(:title, :image, :description, :place, :nickname)
 end
 
 end

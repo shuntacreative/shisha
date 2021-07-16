@@ -1,20 +1,11 @@
 <%= render "shared/header" %>
 <h2>home</h2>
 
-<div>
-   <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-</div>
-
-<div>
-  <%= link_to '写真投稿', new_photo_path %>
-</div>
-
 
 <% User.all.each do |user| %>
 <div>
   <%= link_to user.nickname, user_path(user) %>
 </div>
 <% end %>
-
 
 <%= render "shared/footer" %>
