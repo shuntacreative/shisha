@@ -1,5 +1,7 @@
+<%= render "shared/header" %>
 <% @followings.each do |following| %>
   <div>
     <%= link_to following.nickname, [following] %>
   </div>
 <% end%>
+<%= render "shared/footer" %>
