@@ -18,8 +18,10 @@
 
 <% @user.photos.each do |photo| %>
   <div>
-    <p><%= photo.title %></p>
     <%= image_tag photo.image %>
+    <p><%= photo.title %></p>
+    <p><%= photo.place %></p>
+    <p><%= photo.description %></p>
   </div>
 
   <%= link_to "編集", edit_photo_path(photo) %>
