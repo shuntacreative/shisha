@@ -24,9 +24,11 @@
     <p><%= photo.place %></p>
     <p><%= photo.description %></p>
   </div>
-
+<% if user_signed_in? && current_user.id == photo.user_id %>
   <%= link_to "編集", edit_photo_path(photo) %>
    <%= link_to "削除", photo, method: :delete, data: { confirm: "#{photo.title}を削除して大丈夫ですか？" } %>
+<% end %>
+
 
  <% if user_signed_in? %>
   <div class="like">
