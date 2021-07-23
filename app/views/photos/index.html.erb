@@ -1,11 +1,16 @@
+<%= render "shared/header" %>
+<h2>みんなの投稿</h2>
 
-<% @user.photos.each do |photo| %>
-  <div>
-    
+ <% Photo.all.each do |photo| %>
+<div>
     <%= image_tag photo.image %>
+    <p><%= link_to photo.user.nickname, user_path(photo.user_id) %></p>
     <p><%= photo.title %></p>
     <p><%= photo.place %></p>
     <p><%= photo.description %></p>
   </div>
- 
 <% end %>
+
+
+
+<%= render "shared/footer" %>

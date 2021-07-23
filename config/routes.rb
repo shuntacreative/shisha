@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
 
-  resources :photos, only: [:create, :new, :edit, :update, :destroy] do
+  resources :photos, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
     resources :likes, only: [:create, :destroy]
   end
   resources :users do
