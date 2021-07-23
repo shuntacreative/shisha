@@ -1,35 +1,86 @@
-<header class='top-page-header'>
-  
-  <div class='nav'>
-    <ul class='lists-right'>
-      
-      <% if user_signed_in? %>
-       <li><%= link_to current_user.nickname, user_path(current_user), class: "user-nickname"  %></li>
-       <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-       <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-      <div>
-      <li><%= link_to '写真投稿', new_photo_path %></li>
-      </div>
-      <div>
-      <li><%= link_to 'みんなの投稿', photos_path %></li>
-      </div>
-      <div>
-      <li><%= link_to 'ホームへ', root_path %></li>
-      </div>
+<%= render "shared/header" %>
 
-    </ul>
-  </div>
-</header>
-<h2>home</h2>
+<section class="wrapper">
+    <div class="container">
+        <div class="content">
 
+<div class="cp_cssslider">
+	<div class="mask">
+	<ul>
+	<li><a href="#"><%= image_tag "shisha1.png", class:"cp_cssslider" %></a>
 
-<% User.all.each do |user| %>
-<div>
-  <%= link_to user.nickname, user_path(user) %>
+	<li><a href="#"><%= image_tag "shisha111.png", class:"cp_cssslider" %></a>
+
+	<li><a href="#"><%= image_tag "shisha11.png", class:"cp_cssslider" %></a>
+
+	<li><a href="#"><%= image_tag "shisha4.png", class:"cp_cssslider" %></a>
+
+	<li><a href="#"><%= image_tag "shisha1111.png", class:"cp_cssslider" %></a>
+	
+	</ul>
+	</div>
+	<div class="cp_progressbar"></div>
 </div>
-<% end %>
+
+            <h2 class="heading">STORY</h2>
+            <div class="list">
+                <div class="list-item">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+                <div class="list-item">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper2">
+    <div class="container2">
+        <div class="content2">
+            <div class="content-item2">
+                <%= image_tag "shisha2.png", class:"images2" %>
+            </div>    
+            <div class="content-item2">
+                <div class="text2">
+                    <h2 class="heading2">VISION</h2>
+                    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="wrapper3">
+    <div class="container3">
+        <div class="content3">
+            <div class="content-item3">
+                <%= image_tag "shisha3.png", class:"images3" %>
+            </div>    
+            <div class="content-item3">
+                <div class="text3">
+                    <h2 class="heading3">SERVICE</h2>
+                    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper4">
+    <div class="container4">
+        <div class="content4">
+            <h2 class="heading4">POINT</h2>
+            <div class="list4">
+                <div class="list-item4">
+                    <%= image_tag "shisha4.png", class:"images4" %>
+                    <div class="text4">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+                </div>
+                <div class="list-item4">
+                    <%= image_tag "shisha444.png", class:"images4" %>
+                    <div class="text4">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+                </div>    
+                <div class="list-item4">
+                    <%= image_tag "shisha4444.png", class:"images4" %>
+                    <div class="text4">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <%= render "shared/footer" %>
