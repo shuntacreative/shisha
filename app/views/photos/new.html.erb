@@ -1,26 +1,48 @@
 <%= render "shared/header" %>
-<h2>写真投稿</h2>
+<div class="items-sell-main">
+    <h2 class="items-sell-title">投稿</h2>
 
 <%= form_with model: @photo, local: true do |f| %>
 
-<div>
-<%= f.file_field :image %>
-</div>
+<div class="img-upload">
+      <div class="weight-bold-text">
+        投稿画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
 
-<div>
-<%= f.text_area :title, placeholder:"shop name" %>
+ <div class="new-items">
+      <div class="weight-bold-text">
+       店名
+        <span class="indispensable">必須</span>
+      </div>
+<%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"shop name", maxlength:"40" %>
 </div>
-
-<div>
+ <div class="new-items">
+      <div class="weight-bold-text">
+       店の場所
+        <span class="indispensable">必須</span>
+      </div>
 <%= f.text_area :place, placeholder:"shop place" %>
 </div>
-
-<div>
-<%= f.text_area :description, placeholder:"description or memo" %>
+<div class="items-explain">
+        <div class="weight-bold-text">
+          説明・感想・メモ
+          <span class="indispensable">必須</span>
+        </div>
+<%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"discription or memo" ,rows:"7" ,maxlength:"1000" %>
 </div>
-
+</div>
+<div class="sell-btn-contents">
 <%= f.submit %>
- 
+<%=link_to 'back', root_path, class:"back-btn" %>
+    </div>
 
 <% end %>
 

@@ -52,7 +52,7 @@ end
 private_methods
 
 def photo_params
-  params.require(:photo, :user).permit(:title, :image, :description, :place, :nickname)
+  params.require(:photo).permit(:title, :image, :description, :place, :nickname)
 end
 
 end

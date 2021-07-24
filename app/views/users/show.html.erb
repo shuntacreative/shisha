@@ -16,18 +16,21 @@
 <div>
   <%= link_to 'followers', [@user, :followers] %>
 </div>
-
+<div class="mybox">
+<div class="card">
 <% @user.photos.each do |photo| %>
-  <div>
+  <div class="itm">
     <%= image_tag photo.image %>
-    <p><%= photo.title %></p>
-    <p><%= photo.place %></p>
-    <p><%= photo.description %></p>
-  </div>
+    <p><span>shopname:</span>&nbsp;&nbsp;&nbsp;<%= photo.title %></p>
+    <p><span>place:</span>&nbsp;&nbsp;&nbsp;<%= photo.place %></p>
+    <p><span>memo:</span>&nbsp;&nbsp;&nbsp;<%= photo.description %></p>
+ 
+
 <% if user_signed_in? && current_user.id == photo.user_id %>
   <%= link_to "編集", edit_photo_path(photo) %>
    <%= link_to "削除", photo, method: :delete, data: { confirm: "#{photo.title}を削除して大丈夫ですか？" } %>
 <% end %>
+</div>
 
 
  <% if user_signed_in? %>
@@ -48,5 +51,10 @@
 
 <% end %>
 <% end %>
+</div>
+</div>
+</div>
+
+
 <%= render "shared/footer" %>
 
