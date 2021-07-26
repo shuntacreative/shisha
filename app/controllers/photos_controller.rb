@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @photos = Photo.all.order(id: "DESC")
+    @photos = Photo.all
     @photos = Photo.new
     
 

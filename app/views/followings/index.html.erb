@@ -5,7 +5,7 @@
 <div class="que">
 <% @followings.each do |following| %>
   <div>
-    <%= link_to following.nickname, [following] %>
+    <ul><%= link_to following.nickname, [following] %></ul>
   </div>
 <% end%>
 </div>
