@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(id: "DESC")
     @photos = Photo.new
     
 
@@ -43,8 +43,9 @@ end
 
  def destroy
    @photo = Photo.find(params[:id])
-   @photo.destroy
+   if @photo.destroy
    redirect_to root_path
+   end
  end
 
 

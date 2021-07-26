@@ -1,7 +1,13 @@
 <%= render "shared/header" %>
+
+<h2>following list</h2>
+
+<div class="que">
 <% @followings.each do |following| %>
   <div>
     <%= link_to following.nickname, [following] %>
   </div>
 <% end%>
+</div>
+
 <%= render "shared/footer" %>

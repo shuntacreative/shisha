@@ -1,26 +1,47 @@
 <%= render "shared/header" %>
-<h2>Photos#edit</h2>
-<span>現在ログイン中のユーザー：<%= current_user.nickname %></span>
-<%= form_for(@photo, url: photo_path(@photo)) do |f| %>
-    
-    <div>
-        <%= f.label :イメージ %><br>
-        <%= f.file_field :image, :placeholder =>"#{@photo.image}" %>
-    </div>
-    <div>
-        <%= f.label :お店の名前 %><br>
-        <%= f.text_field :title, autofocus: true, :placeholder =>"#{@photo.title}" %>
-    </div>
-    <div>
-        <%= f.label :場所 %><br>
-        <%= f.text_field :place, autofocus: true, :placeholder =>"#{@photo.place}" %>
-    </div>
-    <div>
-        <%= f.label :説明 %><br>
-        <%= f.text_field :discription, autofocus: true, :placeholder =>"#{@photo.discription}" %>
-    </div>
-    <div><%= f.submit "更新する" %></div>
+<div class="items-sell-main">
+    <h2 class="items-sell-title">投稿</h2>
 
-    
+<%= form_with model: @photo, local: true do |f| %>
+
+<div class="img-upload">
+      <div class="weight-bold-text">
+        投稿画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+ <div class="new-items">
+      <div class="weight-bold-text">
+       店名
+        <span class="indispensable">必須</span>
+      </div>
+<%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"shop name", maxlength:"40" %>
+</div>
+ <div class="new-items">
+      <div class="weight-bold-text">
+       店の場所
+        <span class="indispensable">必須</span>
+      </div>
+<%= f.text_area :place, placeholder:"shop place" %>
+</div>
+<div class="items-explain">
+        <div class="weight-bold-text">
+          説明・感想・メモ
+          <span class="indispensable">必須</span>
+        </div>
+<%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"discription or memo" ,rows:"7" ,maxlength:"1000" %>
+</div>
+<div class="updateb"><%= f.submit "更新する" %></div>
+</div>
+
 <% end %>
+
+
 <%= render "shared/footer" %>

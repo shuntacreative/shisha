@@ -6,11 +6,15 @@
 
 .card .itm {
   border: solid 1px #000;
-  margin: 5px;
   padding: 5px;
-  width: 23%;
+  width: 24%;
 }
 
 span {
   color: green;
+}
+
+.card .itm .imagesize {
+  width: 100%;
+  height: 45%
 }
