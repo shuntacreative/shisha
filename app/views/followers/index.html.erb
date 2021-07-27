@@ -1,7 +1,14 @@
 <%= render "shared/header" %>
+<h2>follower list</h2>
+
+
+<div class="que">
 <% @followers.each do |follower| %>
-  <div>
-    <%= link_to follower.nickname, [follower] %>
-  </div>
+<div>
+    <ul><%= link_to follower.nickname, [follower] %></ul>
+ </div>
 <% end%>
+</div>
+
+
 <%= render "shared/footer" %>

@@ -43,8 +43,9 @@ end
 
  def destroy
    @photo = Photo.find(params[:id])
-   @photo.destroy
+   if @photo.destroy
    redirect_to root_path
+   end
  end
 
 
@@ -52,7 +53,7 @@ end
 private_methods
 
 def photo_params
-  params.require(:photo, :user).permit(:title, :image, :description, :place, :nickname)
+  params.require(:photo).permit(:title, :image, :description, :place, :nickname)
 end
 
 end

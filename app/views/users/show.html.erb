@@ -1,38 +1,43 @@
 <%= render "shared/header"%>
 
+<div class="fname">
 <h3><%= @user.nickname %></h3>
-
+<div class="fofo">
 <% if user_signed_in? && current_user != @user %> 
   <% if current_user.active_relationships.exists?(target_user_id: @user.id) %>
-    <%= link_to 'unfollow', [@user, :follow], method: :delete %>
+    <%= link_to 'unfollow', [@user, :follow], method: :delete %>&nbsp&nbsp&nbsp&nbsp
   <% else %>
-    <%= link_to 'follow', [@user, :follow], method: :post %>
+    <%= link_to 'follow', [@user, :follow], method: :post %>&nbsp&nbsp&nbsp&nbsp
   <% end %>
 <% end %> 
 
 <div>
-  <%= link_to 'followings', [@user, :followings] %>
+  <%= link_to 'followings', [@user, :followings] %>&nbsp&nbsp&nbsp&nbsp
 </div>
 <div>
-  <%= link_to 'followers', [@user, :followers] %>
+  <%= link_to 'followers', [@user, :followers] %>&nbsp&nbsp&nbsp&nbsp
 </div>
-
+</div>
+</div>
+<div class="card">
 <% @user.photos.each do |photo| %>
-  <div>
-    <%= image_tag photo.image %>
-    <p><%= photo.title %></p>
-    <p><%= photo.place %></p>
-    <p><%= photo.description %></p>
-  </div>
+
+  <div class="itm">
+    <%= image_tag photo.image, class:"imagesize" %>
+    <p><span>shopname:</span>&nbsp;&nbsp;&nbsp;<%= photo.title %></p>
+    <p><span>place:</span>&nbsp;&nbsp;&nbsp;<%= photo.place %></p>
+    <p><span>memo:</span>&nbsp;&nbsp;&nbsp;<%= photo.description %></p>
+ 
+
 <% if user_signed_in? && current_user.id == photo.user_id %>
   <%= link_to "編集", edit_photo_path(photo) %>
    <%= link_to "削除", photo, method: :delete, data: { confirm: "#{photo.title}を削除して大丈夫ですか？" } %>
 <% end %>
 
-
+  
+<div class="like">
  <% if user_signed_in? %>
-  <div class="like">
-    <h3>like件数: <%= photo.likes.count %></h3>
+    <h3 class="moji">like件数: <%= photo.likes.count %></h3>
     <div class='like-button'>
       <% if current_user.liked_by?(photo.id) %>
        <td><%= link_to 'UNLIKE', photo_like_path(photo), class: "like-link", method: :DELETE %></td>
@@ -41,12 +46,12 @@
          <td><%= link_to 'LIKE', photo_likes_path(photo), class: "like-link", method: :create %></td>
          <i class="fa fa-heart like-btn"></i>
       <% end %>
-<%# @user.liked_photos.each do |photo| %>
-  <%#= photo.user.nickname %>
-<%# end %>
+ <% end %>
+ </div>
+</div>
+</div>
+<% end %>
 
 
-<% end %>
-<% end %>
 <%= render "shared/footer" %>
 
